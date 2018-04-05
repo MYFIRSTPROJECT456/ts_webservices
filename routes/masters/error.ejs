@@ -1,0 +1,13 @@
+var Action = require('./../lib/Action.js');
+var Error={ 
+saveError:function getError(reqid,error_msg,callback){
+var sql1="INSERT INTO `tbl_errors` (`reqid`, `error_msg`) VALUES (?,?)";   
+ var params = [reqid,error_msg];
+    Action.exeDML(sql1,params,null,null,function(err,result){
+             return callback(err,result);  
+    }); 
+},
+}
+module.exports = Error;
+
+//module.exports = router;
